@@ -17,7 +17,7 @@ const URL = "https://crudcrud.com/api/a405934e2e02498780cef254a99afbf9/todos";
 
 app.get('/api/todos', async (req, res) => {
   try {
-    const response = await axios.get(URL);
+    const response = await axios.get(URL);s
     res.status(200).send(response.data);
   } catch (error) {
     console.error('Error fetching todos:', error);
