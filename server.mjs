@@ -4,16 +4,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
 
-
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors())
-
+app.use(cors());
 app.use(express.json()); 
 app.use(express.static('dist'));
 
-const URL = "https://crudcrud.com/api/a405934e2e02498780cef254a99afbf9/todos"
+const URL = "https://crudcrud.com/api/a405934e2e02498780cef254a99afbf9/todos";
 
 app.get('/api/todos', async (req, res) => {
   try {
@@ -45,6 +43,7 @@ app.delete('/api/todos/:id', async (req, res) => {
     res.status(500).send('Error deleting todo');
   }
 });
+
 app.put('/api/todos/:id', async (req, res) => {
   const todoId = req.params.id;
   const { text, hashtags, dueDate, completed } = req.body;
@@ -61,7 +60,6 @@ app.put('/api/todos/:id', async (req, res) => {
     res.status(500).send('Error updating todo');
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
