@@ -6,14 +6,14 @@ import cors from 'cors';
 
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = "3000";
 
 
 app.use(cors());
 app.use(express.json()); 
 app.use(express.static('dist'));
 
-const URL = "https://crudcrud.com/api/a405934e2e02498780cef254a99afbf9/todos";
+const URL = "https://crudcrud.com/api/148c6c4db0034aa3b2afb39e53682c4d/todos";
 
 app.get('/api/todos', async (req, res) => {
   try {
